@@ -1,0 +1,9 @@
+<div>
+    <div class="d-flex justify-content-center">
+        <nav class="m-2 btn-group">
+            <router-link to="/about" :class="$route.name === 'about' ? 'active' : ''" class="btn btn-outline-dark">About</router-link>
+            <router-link to="/todo" :class="$route.name === 'todo' ? 'active' : ''" class="btn btn-outline-dark">Todo</router-link>
+        </nav>
+    </div>
+    <router-view></router-view>
+</div>

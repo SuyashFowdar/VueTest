@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center align-items-center" :class="{ done: todo.done }">
+   <span class="name">{{ todo.name }}</span>
+   <span v-if="!todo.done">{{ todo.score }}</span>
+   <div v-if="todo.done">
+      <button @click="$emit('undo')" type="button" class="btn btn-light m-1">Undo</button>
+      <span>✔</span>
+   </div>
+   <div v-else>
+      <button @click="$emit('done')" type="button" class="btn btn-primary m-1">Done</button>
+      <button @click="$emit('toggleedit')" type="button" class="btn btn-light m-1">Edit</button>
+      <button @click="$emit('deleteitem')" type="button" class="btn btn-light m-1">Delete</button>
+   </div>
+</div>

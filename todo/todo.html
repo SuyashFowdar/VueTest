@@ -1,0 +1,21 @@
+<div class="m-3">
+    <div class="m-3 d-flex justify-content-center align-items-center flex-fill">
+        <h2>Total Score: {{ score }} !!!</h2>
+        <b>&nbsp; / {{ totalScore }}</b>
+    </div>
+    <ul class="list-group">
+        <li v-for="(todo, todoIndex) in todos" :key="todoIndex" class="list-group-item">
+            <item :todo="todo"
+                  @deleteitem="deleteItem(todoIndex)"
+                  @toggleedit="toggleEdit(todoIndex)"
+                  @done="done(todoIndex)"
+                  @undo="undo(todoIndex)"
+            ></item>
+        </li>
+    </ul>
+    <form @submit="submit" class="m-3 d-flex justify-content-center flex-fill">
+        <input type="text" v-model="newTodo.name" placeholder="New To-Do Name" class="m-1">
+        <input type="text" v-model="newTodo.score" placeholder="Score" class="m-1">
+        <button type="submit" class="btn btn-primary m-1">{{ selectedIndex === null ? 'Add' : 'Update' }} To-Do</button>
+    </form>
+</div>
